@@ -38,11 +38,6 @@
 			    					</div>
 			    				</div>
 			    			</div>
-			    			<?php if($_SESSION["rol"] =! 1)
-								{
-									echo "<style>.admin{display:none}</style>";								
-								}
-							?>
 			    			<div class="row admin">
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">

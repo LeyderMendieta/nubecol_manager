@@ -18,6 +18,7 @@ include("layout_up.php");?>
     <thead>
       <tr>
         <th>Nombre</th>
+        <th class='lider'>Documento</th>
         <th>Celular</th>
         <th>Rol</th>
         <th>N° Clientes</th>
@@ -65,12 +66,20 @@ include("layout_up.php");?>
 					$cargo = "Aspirante";
 					break;
 			}
+			/*
+			if($documento == $_SESSION["documento"])
+			{
+				echo "<style>.dont_me{display:none}</style>";
+			}
+			*/
 		?>
       <tr>
         <td><?php echo $nombre.' '.$apellido;?></td>
+        <td class="lider"><?php echo $documento;?></td>
         <td><?php echo $celular;?></td>
         <td><?php echo $cargo;?></td>
         <td><?php echo $n_clientes;?></td>
+        <td class="lider dont_me"><a href="modificar_usuario.php?edit=<?php echo md5($documento);?>">Editar</a></td>
       </tr>
       <?php } ?>
     </tbody>
