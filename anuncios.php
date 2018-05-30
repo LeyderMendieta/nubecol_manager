@@ -11,13 +11,13 @@
             <button class='btn btn-info link-add' onclick='goto_add()'>Agregar</button>
         </div>
 	 	<?php if(isset($_GET["success"])){
-			$success = "El anuncio ha sido importado";
+			$success = "El anuncio ha sido subido satisfactorio";
 			echo "<div class='alert alert-success' role='alert'><i class='glyphicon glyphicon-ok'></i>$success</div>";
 		}?>
         <br/>
         	<?php include("db.php");
 			 $usuario = $_SESSION["documento"];
-			 $sql_image = "SELECT * FROM anuncio WHERE usuario = '$usuario'";
+			 $sql_image = "SELECT * FROM anuncio WHERE usuario = '$usuario' AND state=1";
 			 if(!$result = $db->query($sql_image))
 			 {
 				 echo "Error, Sin servicio en nuestro SERVER";
@@ -27,7 +27,7 @@
 				 $image = stripslashes($row["ruta"]);
 				 $tipo = stripslashes($row["tipo"]);
 				 echo "<div class='gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter $tipo'>
-						<img src='$image' class='img-responsive'>
+						<img src='$image' class='img-responsive' >
 					</div>";
 			 }
 			 ?>

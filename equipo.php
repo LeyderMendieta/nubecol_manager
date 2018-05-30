@@ -1,38 +1,55 @@
 <?php include("seguridad.php");
 include("layout_up.php");?>
 <div class="row">
-<?php
-$info_rango = "<button type='button' class='pull-right btn btn-default btn-sm' data-toggle='modal' data-target='#myModal' onclick=''>Requisitos</button>
 
-<!-- Modal -->
-<div id='myModal' class='modal fade' role='dialog'>
-  <div class='modal-dialog'>
-
-    <!-- Modal content-->
-    <div class='modal-content'>
-      <div class='modal-header'>
-        <button type='button' class='close' data-dismiss='modal'>&times;</button>
-        <h4 class='modal-title'>Modal Header</h4>
-      </div>
-      <div class='modal-body'>
-        <p>Some text in the modal.</p>
-      </div>
-      <div class='modal-footer'>
-        <button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>";
-	?>
-	<div class="col-md-8"><h2>Equipo de trabajo</h2>
+<div class="col-md-8"><h2>Equipo de trabajo</h2>
   <p>Nuestra comunidad busca aumentar a diario</p> </div>
 	<div class="col-md-4">
 		<ul class="list-group">
-		  <li class="list-group-item active">Rangos</li>
-		  <li class="list-group-item" id='li_lider'>Lider <?php echo $info_rango;?></li>
-		  <li class="list-group-item" id='li_socio'>Socio</li>
-		  <li class="list-group-item" id='li_vendedor'>Vendedor</li>
-		  <li class="list-group-item" id='li_aspirante'>Aspirante</li>
+		<li class="list-group-item active">Rangos</li>
+<?php
+include("db.php");
+$sql_cargo = "SELECT * FROM rol";
+if($result = $db->query($sql_cargo))
+{
+	while($fila = $result->fetch_assoc())
+	{
+		$id_cargo = $fila["id"];
+		$nombre_cargo = $fila["nombre"];
+		$descripcion = $fila["descripcion"];
+		$ventaja = $fila["ventaja"];
+		$requisito = $fila["requisito"];
+		
+		$info_rango = "<button type='button' class='pull-right btn btn-default btn-sm' data-toggle='modal' data-target='#$id_cargo' onclick=''>Descripción</button>
+		<div id='$id_cargo' class='modal fade' role='dialog'>
+		  <div class='modal-dialog'>
+
+			<!-- Modal content-->
+			<div class='modal-content'>
+			  <div class='modal-header'>
+				<button type='button' class='close' data-dismiss='modal'>&times;</button>
+				<h3 class='modal-title'>$nombre_cargo</h3>
+			  </div>
+			  <div class='modal-body'>
+			  	<h4>Descripcion</h4>
+				<p>$descripcion</p>
+				<h4>Ventajas</h4>
+				<p>$ventaja</p>
+				<h4>Requisitos</h4>
+				<p>$requisito</p>
+			  </div>
+			  <div class='modal-footer'>
+			  	<span>Eres el mejor!</span>
+				<button type='button' class='btn btn-default' data-dismiss='modal'>Cerrar</button>
+			  </div>
+			</div>
+		  </div>		  
+		</div>";
+		
+		echo "<li class='list-group-item'>$nombre_cargo $info_rango</li>";
+	}
+}
+			?>		  
 		</ul>
 	</div>
 </div>

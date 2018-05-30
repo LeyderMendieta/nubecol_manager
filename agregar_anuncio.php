@@ -56,21 +56,25 @@
 		  }
    	}
 ?>
-<form action="" method="post" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="file">Elije la imagen</label>
-    <input type="file" class="form-control-file" name='image'>
-  </div>
+<div class="row centered-form">
+	<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+		<form action="" method="post" enctype="multipart/form-data">
+		  <div class="form-group">
+			<label for="file">Elije la imagen</label>
+			<input type="file" class="form-control-file" name='image'>
+		  </div>
 
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="tipo" id="exampleRadios1" value="netflix" checked>
-  <label class="form-check-label">Netflix</label>
-</div>
-<div class="form-check">
-  <input class="form-check-input" type="radio" name="tipo" id="exampleRadios2" value="spotify">
-  <label class="form-check-label">Spotify</label>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="tipo" id="exampleRadios1" value="netflix" checked>
+		  <label class="form-check-label">Netflix</label>
+		</div>
+		<div class="form-check">
+		  <input class="form-check-input" type="radio" name="tipo" id="exampleRadios2" value="spotify">
+		  <label class="form-check-label">Spotify</label>
+			</div>
+		  <input class='btn btn-success' type="submit" value='agregar'>
+		</form>
 	</div>
-  <input class='btn btn-success' type="submit" value='agregar'>
-</form>  
+</div>
 			
 <?php include("layout_down.php");?>

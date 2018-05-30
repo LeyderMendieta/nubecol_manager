@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Nuestro Negocio</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+  <link rel="shortcut icon" href="/img/icon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/site.css">
   <?php
@@ -34,7 +35,7 @@
         <a class="dropdown-toggle" data-toggle="dropdown" href="#"><?php echo $_SESSION["nombre"]." ".$_SESSION["apellido"];?>
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="mi_perfil.php">Mi Perfil</a></li>
+          <li><a href="modificar_usuario.php?edit=<?php echo md5($_SESSION["documento"]);?>">Mi Perfil</a></li>
           <li><a href="logout.php">Cerrar Sesion</a></li>
         </ul>
       </li>
