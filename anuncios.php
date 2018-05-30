@@ -10,6 +10,10 @@
             <button class="btn btn-default filter-button" data-filter="netflix">Netflix</button>
             <button class='btn btn-info link-add' onclick='goto_add()'>Agregar</button>
         </div>
+	 	<?php if(isset($_GET["success"])){
+			$success = "El anuncio ha sido importado";
+			echo "<div class='alert alert-success' role='alert'><i class='glyphicon glyphicon-ok'></i>$success</div>";
+		}?>
         <br/>
         	<?php include("db.php");
 			 $usuario = $_SESSION["documento"];
