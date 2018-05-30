@@ -1,3 +1,4 @@
+<?php include("seguridad.php");?>
 <?php include("layout_up.php");?>
 <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
@@ -28,12 +29,21 @@
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">
 			    						<select class="form-control" name="tipo" id="tipo" required>
-			    							<option value="1">Netflix 1 mes</option>
-			    							<option value="2">Netflix 3 meses</option>
-			    							<option value="3">Netflix 6 meses</option>
-			    							<option value="4">Netflix 12 meses</option>
-			    							<option value="5">Spotify 3 meses</option>
-			    							<option value="6">Spotify 6 meses</option>
+			    						<?php
+											include("db.php");
+											$sql_tipo = "SELECT * FROM tipo_cuenta";
+											if($result = $db->query($sql_tipo))
+											{
+												while($row = $result->fetch_assoc())
+												{
+													$id = $row["id"];
+													$suscripcion = $row["categoria"];
+													$tiempo = $row["tiempo"];
+													$vencimiento = $row["vencimiento"];
+													echo "<option value='$id'>$suscripcion $tiempo</option>";
+												}
+											}
+										?>			    							
 			    						</select>
 			    					</div>
 			    				</div>
@@ -58,7 +68,7 @@
 			    				</div>
 			    			</div>
 			    			
-			    			<input type="submit" value="Agregar Cliente" class="btn btn-default btn-block">
+			    			<input type="submit" value="Agregar Cliente" class="btn btn-info btn-block">
 			    		
 			    		</form>
 			    	</div>

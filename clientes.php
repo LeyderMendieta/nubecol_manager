@@ -2,7 +2,7 @@
 include("seguridad.php");
 include("layout_up.php");
 ?>
-<a class='btn btn-default' href="agregar_cliente.php">Agregar Cliente</a>
+<a class='btn btn-info' href="agregar_cliente.php">Agregar Cliente</a>
 <h2>Mis Clientes</h2>
  <?php
 	if(isset($_GET["insert"]))
@@ -35,11 +35,12 @@ include("layout_up.php");
   <p>Gestiona tus clientes en periodos mes a mes</p>            
   <table class="table table-condensed">
     <thead>
-      <tr>
+      <tr class='active'>
         <th>Nombre</th>
         <th>Celular</th>
         <th>Correo</th>
         <th>Membresia</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -83,6 +84,11 @@ include("layout_up.php");
         <td><?php echo $celular;?></td>
         <td><?php echo $correo;?></td>
         <td><?php echo $membresia;?></td>
+        <td><a href="modificar_cliente.php?client=<?php echo md5($celular);?>&user=<?php echo md5($_SESSION["documento"]);?>" >
+        <button class="btn btn-info">
+        	<i class='glyphicon glyphicon-eye-open'></i>
+        Ver
+        </button></a></td>
       </tr>
       <?php
 			}

@@ -51,21 +51,25 @@ class Cliente{
 		{
 			header("Location: clientes.php?insert=".md5("error"));
 		}
-		if($db->query($sql_insert) == true)
+		else
 		{
-			if($db->query($sql_membresia) == true)
+			if($db->query($sql_insert) == true)
 			{
-				header("Location: clientes.php?insert=".md5("success"));
+				if($db->query($sql_membresia) == true)
+				{
+					header("Location: clientes.php?insert=".md5("success"));
+				}
+				else
+				{
+					header("Location: clientes.php?insert=".md5("error_membresia"));
+				}			
 			}
 			else
 			{
-				header("Location: clientes.php?insert=".md5("error_membresia"));
-			}			
+				header("Location: clientes.php?insert=".md5("error_cliente"));
+			}
 		}
-		else
-		{
-			header("Location: clientes.php?insert=".md5("error_cliente"));
-		}
+		
 	}
 	
 	function eliminar()
