@@ -4,7 +4,7 @@
   <title>Nuestro Negocio</title>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
-  <link rel="shortcut icon" href="/img/icon.ico">
+  <link rel="icon" type="image/png" href="images/icon.png" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/site.css">
   <?php

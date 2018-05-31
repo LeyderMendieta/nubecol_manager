@@ -1,5 +1,4 @@
 <?php
-
 class User
 {
 	
@@ -55,9 +54,7 @@ class User
 		}
 		else
 		{
-			$this->documento;
-			$this->password;
-			//header("Location: login.php?error=".md5("usuario"));
+			header("Location: login.php?error=".md5("usuario"));
 		}
 		
 	}
