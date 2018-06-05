@@ -71,9 +71,67 @@ class User
 		header("Location: login.php?success=".md5("logout"));
 	}
 	
-	function eliminar()
+	function registro()
 	{
-		
+		session_start();
+		include("db.php");
+		$sql_validate_documento = "SELECT * FROM usuario WHERE documento='$this->documento'";
+		if($result = $db->query($sql_validate_documento))
+		{
+			if($row = $result->fetch_assoc)
+			{
+				header("location: registro.php?error=".md5("existe"));
+			}
+		}
+		$sql_add_user = "INSERT INTO usuario(documento,password,celular,nombre,apellido,fk_referido,rol) VALUES ('$this->documento','$this->password','$this->celular','$this->nombre','$this->apellido','$this->fk_referido','$this->rol')";
+		if($db->query($sql_add_user) == true)
+		{
+			$_SESSION["documento"] = $this->documento;
+			$_SESSION["password"] = $this->password;
+			$_SESSION["celular"] = $this->celular;
+			$_SESSION["nombre"] = $this->nombre;
+			$_SESSION["apellido"] = $this->apellido;
+			$_SESSION["fk_referido"] = $this->fk_referido;
+			$_SESSION["rol"] = $this->rol;
+			header("Location: index.php");
+		}
+		else
+		{
+			header("Location: registro.php?error=".md5("agregar"));
+		}
+	}
+	
+	function modificar()
+	{
+		include("db.php");
+		if($this->rol != '')
+		{
+			$rol = ",rol=".$this->rol;
+		}
+		else
+		{
+			$rol = '';
+		}
+		$sql_update = "UPDATE usuario SET celular='$this->celular',nombre='$this->nombre',apellido='$this->apellido'".$rol." WHERE documento='$this->documento'";
+		if($db->query($sql_update) == true)
+		{
+			if($_SESSION["documento"] == $this->documento)
+			{
+				$_SESSION["celular"] = $this->celular;
+				$_SESSION["nombre"] = $this->nombre;
+				$_SESSION["apellido"] = $this->apellido;
+				$_SESSION["rol"] = $this->rol;
+				header("Location: modificar_usuario.php?edit=".md5($_SESSION["documento"])."&update=true&onvalidate=".md5("updated"));
+			}
+			else
+			{
+				header("Location: equipo.php?edit=".md5("success"));	
+			}
+		}
+		else
+		{
+			header("Location: equipo.php?edit=".md5("error"));
+		}
 	}
 }
 ?>

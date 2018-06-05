@@ -2,7 +2,7 @@
 <!DOCTYPE html>
  <html>
  <head>
-  <title>Bootstrap Example</title>
+  <title>Ingresar</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -19,7 +19,7 @@
 	<br>
 	<br>
 	<div class="row">
-		<div class="col-md-offset-4 col-md-5">
+		<div class="col-md-offset-4 col-md-4">
 			<?php
 				if(isset($_GET["success"]))
 				{
@@ -48,14 +48,16 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-offset-4 col-md-5">
+		<div class="col-md-offset-4 col-md-4">
 			<form action="login_query.php" method="post">
 				<label for="documento">Documento:</label>
 				<input class='form-control' name="documento" type="text" required>
 				<label for="password">Contraseña:</label>
 				<input class='form-control' type="password" name="password" required><br>
-				<input class='btn btn-primary' type="submit" value='ingresar'>
+				<input class='btn btn-primary' type="submit" value='Ingresar'>
+				<a href="registro.php?ref=null" class="pull-right btn btn-info">Registrar</a>
 			</form>
+				
 		</div>
 	</div>	
 </div>

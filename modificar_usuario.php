@@ -15,6 +15,24 @@ if(isset($_GET["edit"]))
 			}
 		}
 	}
+	if($documento == $_SESSION["documento"])
+	{
+		$back = "location.href='index.php'";
+	}
+	else{
+		$back = "equipo.php";
+	}
+	if(isset($_GET["update"]))
+	{
+		switch($_GET["onvalidate"])
+		{
+			case md5("updated"):
+				echo "<div class='alert alert-success'>Se ha actualizado tu información</div>";
+				break;
+			default:
+				break;
+		}
+	}
 }
 $query_usuario = "SELECT * FROM usuario WHERE documento='$documento'";
 if($resultado = $db->query($query_usuario))
@@ -57,9 +75,6 @@ if($resultado = $db->query($query_usuario))
 }
 
 ?>
-<script>
-	function mayus(e) {var tecla=e.value;e.value =tecla.toUpperCase();}
-</script>
 <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">
@@ -86,7 +101,7 @@ if($resultado = $db->query($query_usuario))
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
 			    					<div class="form-group">Documento
 			    						<input type="text" name="documento" id="documento" class="form-control input-sm"
-			    						value="<?php echo $documento;?>" pattern="[0-9]+" title="Solo Numeros" required>
+			    						value="<?php echo $documento;?>" pattern="[0-9]+" title="Solo Numeros" readonly required>
 			    					</div>
 			    				</div>
 			    				<div class="col-xs-6 col-sm-6 col-md-6">
@@ -109,7 +124,7 @@ if($resultado = $db->query($query_usuario))
 			    			<input type="submit" value="Actualizar" class="btn btn-success btn-block">			    			
 			    		
 			    		</form>
-			    		<button class="btn btn-info btn-block" onClick="history.back()">Regresar</button>
+			    		<button class="btn btn-info btn-block" onClick="<?php echo $back;?>">Regresar</button>
 			    	</div>
 	    		</div>
     		</div>

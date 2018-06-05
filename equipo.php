@@ -3,7 +3,22 @@ include("layout_up.php");?>
 <div class="row">
 
 <div class="col-md-8"><h2>Equipo de trabajo</h2>
-  <p>Nuestra comunidad busca aumentar a diario</p> </div>
+  <p>Nuestra comunidad busca aumentar a diario</p>
+  <?php
+	if(isset($_GET["edit"]))
+	{
+		switch($_GET["edit"])
+		{
+			case md5("success"):
+				echo "<div class='alert alert-success'>Se ha actualizado tu información</div>";
+				break;
+			case md5("error"):
+				echo "<div class='alert alert-danger'>Error al actualizar la información</div>";
+				break;
+		}
+	}
+	?>
+</div>
 	<div class="col-md-4">
 		<ul class="list-group">
 		<li class="list-group-item active">Rangos</li>
