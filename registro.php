@@ -104,7 +104,7 @@
 				<label for="celular">Celular:</label>
 				<input class='form-control' name="celular" type="text" required>
 				<label for="ref">Referido: <?php echo $ref;?></label>
-				<input class='form-control' name="ref" type="text" value='<?php echo $documento;?>' readonly required><br>
+				<input class='form-control' name="ref" type="hidden" value='<?php echo $documento;?>' readonly required><br>
 				<input class='btn btn-primary' type="submit" value='Registrarme'>
 				<a href='login.php' class="pull-right btn btn-info">Regresar</a>
 			</form>

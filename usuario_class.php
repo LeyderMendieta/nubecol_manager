@@ -78,7 +78,7 @@ class User
 		$sql_validate_documento = "SELECT * FROM usuario WHERE documento='$this->documento'";
 		if($result = $db->query($sql_validate_documento))
 		{
-			if($row = $result->fetch_assoc)
+			if($row = $result->fetch_assoc())
 			{
 				header("location: registro.php?error=".md5("existe"));
 			}

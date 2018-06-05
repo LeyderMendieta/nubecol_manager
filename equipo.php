@@ -76,8 +76,8 @@ if($result = $db->query($sql_cargo))
         <th class='lider'>Documento</th>
         <th>Celular</th>
         <th>Rol</th>
-        <th>N° Clientes</th>
-        <th>.</th>
+        <th class='lider'>N° Clientes</th>
+        <th class='lider'>.</th>
       </tr>
     </thead>
     <tbody>
