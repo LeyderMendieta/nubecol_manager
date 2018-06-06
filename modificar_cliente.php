@@ -1,5 +1,5 @@
 <?php
-include("seguridad_lider.php");
+include("seguridad.php");
 include("layout_up.php");
 include("db.php");
 if(isset($_GET["client"]) && isset($_GET["user"]))
@@ -29,9 +29,6 @@ else
 	header("Location: clientes.php");
 }
 ?>
-<script>
-	function mayus(e) {var tecla=e.value;e.value =tecla.toUpperCase();}
-</script>
 <div class="row centered-form">
         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
         	<div class="panel panel-default">

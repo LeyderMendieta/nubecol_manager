@@ -8,7 +8,7 @@
             <button class="btn btn-default filter-button" data-filter="all">Todo</button>
             <button class="btn btn-default filter-button" data-filter="spotify">Spotify</button>
             <button class="btn btn-default filter-button" data-filter="netflix">Netflix</button>
-            <button class='btn btn-info link-add' onclick='goto_add()'>Agregar</button>
+            <a class='btn btn-default filter-button' href='agregar_anuncio.php'>Agregar</a>
         </div>
 	 	<?php if(isset($_GET["success"])){
 			$success = "El anuncio ha sido subido satisfactorio";
@@ -27,7 +27,7 @@
 				 $image = stripslashes($row["ruta"]);
 				 $tipo = stripslashes($row["tipo"]);
 				 echo "<div class='gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter $tipo'>
-						<img src='$image' class='img-responsive' >
+						<img src='$image' class='img-responsive'>
 					</div>";
 			 }
 			 ?>

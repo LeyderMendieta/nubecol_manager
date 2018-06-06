@@ -97,10 +97,10 @@
 				<input class='form-control' name="documento" type="text" required>
 				<label for="password">Contraseña:</label>
 				<input class='form-control' type="password" name="password" required>
-				<label for="nombre">Nombre:</label>
-				<input class='form-control' name="nombre" type="text" required>
+				<label for="nombre" >Nombre:</label>
+				<input class='form-control' onkeypress="mayus(this);" onchange="mayus(this);" name="nombre" type="text" required>
 				<label for="apellido">Apellido:</label>
-				<input class='form-control' name="apellido" type="text" required>
+				<input class='form-control' onkeypress="mayus(this);" onchange="mayus(this);" name="apellido" type="text" required>
 				<label for="celular">Celular:</label>
 				<input class='form-control' name="celular" type="text" required>
 				<label for="ref">Referido: <?php echo $ref;?></label>

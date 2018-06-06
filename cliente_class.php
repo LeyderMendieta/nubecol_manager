@@ -72,6 +72,45 @@ class Cliente{
 		
 	}
 	
+	function modificar($rol)
+	{
+		include("db.php");
+		if($rol == true)
+		{
+			$sql_update = "UPDATE cliente SET nombre='$this->nombre',apellido='$this->apellido',fk_vendedor='$this->fk_vendedor',detalle='$this->detalle' WHERE celular='$this->celular'";
+			if($db->query($sql_update) == true)
+			{
+				$sql_update_2 = "UPDATE membresia SET tipo='$this->m_tipo',correo='$this->m_correo',contra='$this->m_contra',
+				tiempo='$this->m_tiempo',vencimiento='$this->m_vencimiento',vendedor='$this->fk_vendedor',suscripcion='$this->suscripcion'
+				WHERE cliente='$this->celular'";
+				if($db->query($sql_update_2) == true)
+				{
+					header("Location: pendiente.php?update=".md5("success"));
+				}
+				else
+				{
+					header("Location: pendiente.php?update=".md5("error_m"));
+				}				
+			}
+			else
+			{
+				header("Location: pendiente.php?update=".md5("error_c"));
+			}
+		}
+		else
+		{
+			$sql_update = "UPDATE cliente SET nombre='$this->nombre',apellido='$this->apellido' WHERE celular='$this->celular'";
+			if($db->query($sql_update) == true)
+			{
+				header("Location: clientes.php?update=".md5("success"));
+			}
+			else
+			{
+				header("Location: clientes.php?update=".md5("error"));
+			}
+		}
+	}
+	
 	function eliminar()
 	{
 		

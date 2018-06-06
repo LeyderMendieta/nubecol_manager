@@ -28,19 +28,19 @@
 			break;
 		// Socio
 		case 2:
-			echo "<style>.lider{display:none;}</style>";
+			echo "<style>.lider{display:none;}#lider{display:none;}</style>";
 			break;
 		// Vendedor
 		case 3:
-			echo "<style>.socios{display:none;}</style>";
-			echo "<style>.lider{display:none;}</style>";
+			echo "<style>.socios{display:none;}#socios{display:none;}</style>";
+			echo "<style>.lider{display:none;}#lider{display:none;}</style>";
 			break;
 		//	Aspirante
 		case 4:
 			echo "<style>.socios{display:none;}#socios{display:none;}</style>";
 			echo "<style>.equipo{display:none;}#equipo{display:none;}</style>";
-			echo "<style>.clientes{display:none;}</style>";
-			echo "<style>.lider{display:none;}</style>";
+			echo "<style>.clientes{display:none;}#clientes{display:none;}</style>";
+			echo "<style>.lider{display:none;}#lider{display:none;}</style>";
 			break;
 		default:
 			break;
@@ -77,9 +77,10 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="index.php">Inicio</a></li>
-      <li id='socios'><a href="clientes.php">Clientes</a></li>
+      <li id='clientes'><a href="clientes.php">Clientes</a></li>
       <li><a href="anuncios.php">Anuncios</a></li>
 	  <li id='equipo'><a href="equipo.php">Equipo</a></li>
+	  <li id='lider'><a href="pendiente.php">Pendiente</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
